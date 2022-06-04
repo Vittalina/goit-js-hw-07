@@ -18,8 +18,6 @@ gallery.insertAdjacentHTML("beforeend", galleryItem);
 
 
 let galleryEl = new SimpleLightbox('.gallery a', {
-    caption: true,
-    captionType: 'attr',
-    captionData: 'alt',
-    captionDelay: '250ms',
+        captionsData: 'alt',
+        captionDelay: 250,
 });
