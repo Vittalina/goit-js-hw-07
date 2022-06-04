@@ -35,7 +35,6 @@ function onImageOpen (event) {
     // console.log(event.target.dataset.sourse);
     instance.show()
     
-gallery.removeEventListener('click', onImageOpen);
 
 window.addEventListener('keydown', onEscKeyPress);
 

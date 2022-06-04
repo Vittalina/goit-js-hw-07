@@ -6,13 +6,15 @@ console.log(galleryItems);
 const gallery = document.querySelector(".gallery");
 console.log(gallery);
 
-const gallaryItem = galleryItems.map(({preview, original, description}) => 
-`<a class="gallery__item" href="${original}">
+const galleryItem = galleryItems.map(({preview, original, description}) => 
+    `<li>
+<a class="gallery__item" href="${original}">
     <img class="gallery__image" src="${preview}" alt="${description}" />
-</a>`)
+</a>
+</li>`)
         .join("");
     
-gallery.insertAdjacentHTML("beforeend", gallaryItem);
+gallery.insertAdjacentHTML("beforeend", galleryItem);
 
 
 let galleryEl = new SimpleLightbox('.gallery a', {
