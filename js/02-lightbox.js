@@ -16,7 +16,7 @@ gallery.insertAdjacentHTML("beforeend", gallaryItem);
 
 
 let galleryEl = new SimpleLightbox('.gallery a', {
-    captions: true,
+    caption: true,
     captionType: 'attr',
     captionData: 'alt',
     captionDelay: '250ms',
