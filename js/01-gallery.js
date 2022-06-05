@@ -6,8 +6,8 @@ console.log(galleryItems);
 const gallery = document.querySelector(".gallery");
 console.log(gallery);
 
-const gallaryItem = galleryItems.map(({preview, original, description}) => 
-`<div class="gallery__item">
+const gallaryItem = galleryItems.map(({ preview, original, description }) =>
+    `<div class="gallery__item">
     <a class="gallery__link" href="${original}">
         <img
             class="gallery__image"
@@ -17,14 +17,14 @@ const gallaryItem = galleryItems.map(({preview, original, description}) =>
         />
     </a>
 </div>`)
-        .join("");
-    
+    .join("");
+
 gallery.insertAdjacentHTML("beforeend", gallaryItem);
 // console.log(gallaryItem);
 
 gallery.addEventListener('click', onImageOpen);
 
-function onImageOpen (event) {
+function onImageOpen(event) {
     event.preventDefault();
     if (event.target.nodeName !== "IMG") {
         return;
@@ -41,17 +41,16 @@ function onImageOpen (event) {
         },
     }
     );
-        
+
     instance.show()
-    
 
-document.addEventListener('keydown', onEscPress);
 
-function onEscPress(event) {
-    if (event.code === "Escape") {
-        instance.close(document.removeEventListener('keydown', onEscPress)
-);
+    document.addEventListener('keydown', onEscPress);
+
+    function onEscPress(event) {
+        if (event.code === "Escape") {
+            instance.close();
+        }
     }
-}
 
 }
