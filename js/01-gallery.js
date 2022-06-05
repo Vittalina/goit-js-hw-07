@@ -49,8 +49,8 @@ document.addEventListener('keydown', onEscPress);
 
 function onEscPress(event) {
     if (event.code === "Escape") {
-        instance.close();
-        document.removeEventListener('keydown', onEscPress);
+        instance.close(document.removeEventListener('keydown', onEscPress)
+);
     }
 }
 
