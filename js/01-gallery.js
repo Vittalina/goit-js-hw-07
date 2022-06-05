@@ -29,19 +29,28 @@ function onImageOpen (event) {
     if (event.target.nodeName !== "IMG") {
         return;
     };
+
     const instance = basicLightbox.create(`
         <img src="${event.target.dataset.source}" width="800" height="600">
-`)
+`, {
+        onShow: (instance) => {
+            document.addEventListener('keydown', onEscPress);
+        },
+        onClose: (instance) => {
+            document.removeEventListener('keydown', onEscPress)
+        },
+    }
+    );
         
     instance.show()
     
 
-window.addEventListener('keydown', onEscKeyPress);
+document.addEventListener('keydown', onEscPress);
 
-function onEscKeyPress(event) {
+function onEscPress(event) {
     if (event.code === "Escape") {
         instance.close();
-        window.removeEventListener('keydown', onEscKeyPress);
+        document.removeEventListener('keydown', onEscPress);
     }
 }
 
